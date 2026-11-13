@@ -70,8 +70,13 @@
     },
     {
       "date": "2026-11-20",
-      "status": "needs_input",
-      "note": "Client review post: waiting for a real client review from Felix"
+      "status": "ready",
+      "type": "image",
+      "title": "Before you build, prepare these",
+      "images": [
+        "https://raw.githubusercontent.com/Eiltes/felixeweb-social/main/week1/W1-Fri20-Prepare.jpg"
+      ],
+      "caption": "Planning to launch an online store? Prepare these 4 things first 👇\n\n📸 Product photos: clear, consistent, same background\n📝 Product details: names, prices, variants and descriptions\n💳 Payment account: approved before launch, not after\n🚚 Shipping & returns: rates, zones and a simple policy\n\nHave these ready and your WooCommerce store can go live in 7–10 days instead of months.\n\nReady to start? Book a free 30-min consult, link in bio.\n\n#woocommerce #onlinestore #ecommercetips #webdesigner #smallbusiness"
     },
     {
       "date": "2026-11-21",
@@ -85,8 +90,13 @@
     },
     {
       "date": "2026-11-22",
-      "status": "needs_input",
-      "note": "Behind-the-scenes post: waiting for a screenshot of a current build from Felix"
+      "status": "ready",
+      "type": "image",
+      "title": "What shoppers must see before they scroll",
+      "images": [
+        "https://raw.githubusercontent.com/Eiltes/felixeweb-social/main/week1/W1-Sun22-AboveFold.jpg"
+      ],
+      "caption": "Shoppers decide fast. Here's what your homepage must show before they scroll 👇\n\n01 What you sell: one clear headline, not a slogan\n02 Why trust you: reviews, guarantees or proof\n03 One main button: \"Shop now\", in your accent colour\n04 Easy menu: categories one tap away\n\nGet these right and more visitors turn into buyers.\n\nWant a homepage that sells? Book a free consult, link in bio.\n\n#webdesign #ecommercewebsite #woocommerce #conversionrate #webdesigner"
     }
   ]
 }
