@@ -292,6 +292,16 @@ footer{padding:70px 0 40px}
 .elementor-widget-html,.elementor-widget-html .elementor-widget-container{width:100%!important;max-width:100%!important;margin:0!important;padding:0!important}
 .elementor-section.elementor-section-boxed>.elementor-container,.e-con,.e-con-inner,.elementor-column-gap-default>.elementor-column>.elementor-element-populated{max-width:100%!important;padding:0!important;margin:0!important}
 .elementor-element.elementor-widget-html{--widget-width:100%}
+
+/* Theme guard: stop Astra / Elementor kit styles leaking in */
+html body,html body.elementor-template-canvas{background:#0A0A0A!important;color:#F3EEE4}
+.elementor-widget-html :is(h1,h2,h3,h4,h5,h6){color:inherit;font-family:inherit}
+.elementor-widget-html .filters button:not(.on):not(:hover){background:none;color:var(--soft);border-color:var(--line)}
+.elementor-widget-html .q button,.elementor-widget-html .burger{background:none;box-shadow:none}
+.elementor-widget-html .q button:hover,.elementor-widget-html .q button:focus{background:none;color:inherit}
+.elementor-widget-html a{text-decoration:none}
+body.admin-bar header#top{top:32px}
+@media (max-width:782px){body.admin-bar header#top{top:46px}}
 </style>
 
 <div id="loader" aria-hidden="true"><div class="fw">F<span>W</span></div></div>
