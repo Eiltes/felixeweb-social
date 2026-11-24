@@ -302,6 +302,25 @@ html body,html body.elementor-template-canvas{background:#0A0A0A!important;color
 .elementor-widget-html a{text-decoration:none}
 body.admin-bar header#top{top:32px}
 @media (max-width:782px){body.admin-bar header#top{top:46px}}
+
+#reviews{padding-top:0}
+.vt-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;max-width:1080px;margin:0 auto}
+.vt{margin:0}
+.vt-frame{position:relative;aspect-ratio:9/16;border-radius:22px;overflow:hidden;background:#111 center/cover;border:1px solid var(--line);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);cursor:pointer;transition:border-color .4s,transform .6s cubic-bezier(.2,.7,.2,1)}
+.vt-frame:hover{border-color:var(--bronze);transform:translateY(-4px)}
+.vt-frame video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+.vt-frame::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.75),transparent 45%);pointer-events:none;transition:opacity .4s}
+.vt-frame.playing::after,.vt-frame.playing .vt-play,.vt-frame.playing .vt-dur{opacity:0;pointer-events:none}
+.vt-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:78px;height:78px;border-radius:50%;border:0;background:var(--gold);cursor:pointer;z-index:2;box-shadow:0 0 0 10px rgba(176,138,46,.22),0 20px 40px rgba(0,0,0,.5);transition:transform .3s,box-shadow .3s,opacity .3s}
+.vt-play span{position:absolute;left:54%;top:50%;transform:translate(-50%,-50%);border-style:solid;border-width:13px 0 13px 21px;border-color:transparent transparent transparent var(--onyx)}
+.vt-frame:hover .vt-play{transform:translate(-50%,-50%) scale(1.08);box-shadow:0 0 0 16px rgba(176,138,46,.18),0 20px 40px rgba(0,0,0,.5)}
+.vt-dur{position:absolute;right:14px;top:14px;z-index:2;font-size:12px;font-weight:700;letter-spacing:1px;padding:6px 10px;border-radius:99px;background:rgba(10,10,10,.75);border:1px solid var(--line);transition:opacity .3s}
+.vt figcaption{padding:16px 4px 0;display:flex;flex-direction:column;gap:2px}
+.vt-stars{color:var(--gold);letter-spacing:3px;font-size:14px}
+.vt figcaption b{font-size:17px;font-weight:700}
+.vt figcaption small{color:var(--muted);font-size:13px}
+@media (max-width:760px){.vt-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -6vw;padding:0 6vw 10px;scrollbar-width:none}.vt-row::-webkit-scrollbar{display:none}.vt{flex:0 0 72%;scroll-snap-align:center}}
+@media (max-width:1280px){.avail{display:none}.links{gap:26px}}
 </style>
 
 <div id="loader" aria-hidden="true"><div class="fw">F<span>W</span></div></div>
@@ -311,7 +330,7 @@ body.admin-bar header#top{top:32px}
 <header id="top">
  <div class="wrap nav">
   <a href="#home" class="brand" aria-label="FelixeWeb home"><div class="fw">F<span>W</span></div><b>FELIXE<span>WEB</span></b></a>
-  <nav class="links" aria-label="Main"><a href="#work">Work</a><a href="#services">Services</a><a href="#apps">Apps</a><a href="#process">Process</a><a href="#about">About</a><a href="#faq">FAQ</a></nav>
+  <nav class="links" aria-label="Main"><a href="#work">Work</a><a href="#reviews">Reviews</a><a href="#services">Services</a><a href="#apps">Apps</a><a href="#process">Process</a><a href="#about">About</a><a href="#faq">FAQ</a></nav>
   <div class="nav-right">
    <span class="avail"><i class="dot"></i>TAKING NEW PROJECTS</span>
    <a class="btn btn-gold mag" href="https://calendar.app.google/zokGimp6miS6uLni7" target="_blank" rel="noopener">Book a free call <span class="arr">→</span></a>
@@ -321,6 +340,7 @@ body.admin-bar header#top{top:32px}
 </header>
 <nav id="mobile-menu" aria-label="Mobile">
  <a class="m" href="#work"><em>01</em>Work</a>
+ <a class="m" href="#reviews"><em>★</em>Reviews</a>
  <a class="m" href="#services"><em>02</em>Services</a>
  <a class="m" href="#apps"><em>03</em>Apps</a>
  <a class="m" href="#process"><em>04</em>Process</a>
@@ -440,6 +460,41 @@ body.admin-bar header#top{top:32px}
     <div class="browser"><div class="bar"><i></i><i></i><i></i><u>invite.sixandbloomco.com</u></div><div class="shot"><img src="/wp-content/uploads/2026/11/sixbloom.webp" alt="Six &amp; Bloom Co. interactive digital invitation with a red envelope and wax seal" loading="lazy"></div></div>
     <div class="meta"><div><div class="tag">Digital product · Event invitation</div><h3>Six &amp; Bloom Co.</h3><p>An interactive digital invitation: guests tap the wax seal to open the envelope and see the event details.</p></div><span class="go" aria-hidden="true">↗</span></div>
    </a>
+  </div>
+ </div>
+</section>
+
+<section id="reviews" aria-label="Client video testimonials">
+ <div class="wrap">
+  <div class="sec-head">
+   <div><div class="label rv">Client reviews</div><h2 class="rv d1">In their <em>own</em> words.</h2></div>
+   <p class="rv d2">Real clients talking about working with me, unedited. Tap a video to play. There are 65+ more reviews on <a href="https://www.fiverr.com/s/odWybEX" target="_blank" rel="noopener" style="color:var(--gold)">Fiverr</a>.</p>
+  </div>
+  <div class="vt-row">
+   <figure class="vt rv">
+    <div class="vt-frame" data-src="https://felixeweb.com/wp-content/uploads/2026/11/DBD0DD3D-1B0C-43EF-B3EF-E9FD999C156A-1.mov">
+     <video preload="none" playsinline poster="https://felixeweb.com/wp-content/uploads/2026/11/testimonial-1-poster.jpg" aria-label="Client video testimonial 1"><source src="https://felixeweb.com/wp-content/uploads/2026/11/DBD0DD3D-1B0C-43EF-B3EF-E9FD999C156A-1.mov" type="video/mp4"></video>
+     <button class="vt-play" aria-label="Play client video testimonial 1"><span></span></button>
+     <span class="vt-dur">0:35</span>
+    </div>
+    <figcaption><span class="vt-stars" aria-label="5 out of 5">★★★★★</span><b>Client video review 01</b><small>FelixeWeb client</small></figcaption>
+   </figure>
+   <figure class="vt rv d1">
+    <div class="vt-frame" data-src="https://felixeweb.com/wp-content/uploads/2026/11/testimonial.mp4">
+     <video preload="none" playsinline poster="https://felixeweb.com/wp-content/uploads/2026/11/testimonial-2-cover.jpg" aria-label="Client video testimonial 2"><source src="https://felixeweb.com/wp-content/uploads/2026/11/testimonial.mp4" type="video/mp4"></video>
+     <button class="vt-play" aria-label="Play client video testimonial 2"><span></span></button>
+     <span class="vt-dur">0:38</span>
+    </div>
+    <figcaption><span class="vt-stars" aria-label="5 out of 5">★★★★★</span><b>Client video review 02</b><small>FelixeWeb client</small></figcaption>
+   </figure>
+   <figure class="vt rv d2">
+    <div class="vt-frame" data-src="https://felixeweb.com/wp-content/uploads/2026/11/TESTIMINAL.mp4">
+     <video preload="none" playsinline poster="https://felixeweb.com/wp-content/uploads/2026/11/testimonial-3-cover.jpg" aria-label="Client video testimonial 3"><source src="https://felixeweb.com/wp-content/uploads/2026/11/TESTIMINAL.mp4" type="video/mp4"></video>
+     <button class="vt-play" aria-label="Play client video testimonial 3"><span></span></button>
+     <span class="vt-dur">1:15</span>
+    </div>
+    <figcaption><span class="vt-stars" aria-label="5 out of 5">★★★★★</span><b>Client video review 03</b><small>FelixeWeb client</small></figcaption>
+   </figure>
   </div>
  </div>
 </section>
@@ -583,3 +638,5 @@ body.admin-bar header#top{top:32px}
  window.addEventListener('scroll',function(){var y=window.scrollY;bws.forEach(function(b){b.style.transform='translateX('+(-y*.25)+'px)'})},{passive:true});
 })();
 </script>
+<script>(function(){var fr=document.querySelectorAll('.vt-frame');fr.forEach(function(f){var v=f.querySelector('video');f.addEventListener('click',function(e){if(f.classList.contains('playing')&&e.target===v)return;fr.forEach(function(o){if(o!==f){var ov=o.querySelector('video');ov.pause();}});v.controls=true;v.muted=false;v.play();f.classList.add('playing')});v.addEventListener('pause',function(){if(v.ended||v.currentTime===0)f.classList.remove('playing')});v.addEventListener('ended',function(){f.classList.remove('playing');v.controls=false;v.load()})})})();</script>
+
