@@ -1,6 +1,6 @@
 {
-  "version": "1.4.0",
-  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/9db4d5553b557262d167241d4fea29613fc16e0f/crm/felixeweb-crm.zip",
-  "sha256": "904fc9bee7a9ad496eb1ddbfb6b8545556f90ceab2490cf8270eb3c510d24b60",
-  "notes": "What gets replies insights on Stats, Monday summary alert, one-tap updates."
+  "version": "1.4.1",
+  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/8ad1b6f340c0a12c14678e215bb1ff9951dc6c2a/crm/felixeweb-crm.zip",
+  "sha256": "8afe8746d5c58df6ca23e2a664968dd6bd0f2ea8f8cf2b6cc7fd48d439c63acb",
+  "notes": "Cleaner country grouping in What gets replies."
 }
