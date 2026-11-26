@@ -321,6 +321,16 @@ body.admin-bar header#top{top:32px}
 .vt figcaption small{color:var(--muted);font-size:13px}
 @media (max-width:760px){.vt-row{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -6vw;padding:0 6vw 10px;scrollbar-width:none}.vt-row::-webkit-scrollbar{display:none}.vt{flex:0 0 72%;scroll-snap-align:center}}
 @media (max-width:1280px){.avail{display:none}.links{gap:26px}}
+.cs{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(24px,4vw,56px);align-items:center;max-width:1180px;margin:0 auto}
+.cs .vt-frame{aspect-ratio:16/9;border-radius:18px}
+.cs-copy h3{font-size:clamp(22px,2.4vw,30px);line-height:1.15;margin:0 0 14px;color:var(--ivory,#F3EEE4)}
+.cs-copy p{color:#bdb6aa;margin:0 0 16px;line-height:1.6}
+.cs-list{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:10px}
+.cs-list li{display:flex;gap:12px;align-items:flex-start;color:#e6e0d4;line-height:1.5}
+.cs-list li b{color:var(--gold,#B08A2E);font-weight:800;min-width:18px}
+.cs-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.cs-tags span{font-size:12px;letter-spacing:.04em;border:1px solid var(--line,#2a2722);border-radius:99px;padding:6px 12px;color:#cfc8bb}
+@media (max-width:900px){.cs{grid-template-columns:1fr}}
 </style>
 
 <div id="loader" aria-hidden="true"><div class="fw">F<span>W</span></div></div>
@@ -495,6 +505,36 @@ body.admin-bar header#top{top:32px}
     </div>
     <figcaption><span class="vt-stars" aria-label="5 out of 5">★★★★★</span><b>Client video review 03</b><small>FelixeWeb client</small></figcaption>
    </figure>
+  </div>
+ </div>
+</section>
+
+<section id="case-study" aria-label="Case study: manual-payment checkout for a peptide store" style="padding-top:0">
+ <div class="wrap">
+  <div class="sec-head">
+   <div><div class="label rv">Case study</div><h2 class="rv d1">When card processors <em>say no</em>.</h2></div>
+   <p class="rv d2">Most card processors refuse research peptide stores. Here is how I solved that for a US peptide brand, so buyers can still pay at checkout and the owner stays in control. Client name kept private.</p>
+  </div>
+  <div class="cs">
+   <figure class="vt rv" style="margin:0">
+    <div class="vt-frame" data-src="{{CASE_VIDEO}}">
+     <video preload="none" playsinline poster="{{CASE_POSTER}}" aria-label="Manual-payment checkout walkthrough on a demo store"><source src="{{CASE_VIDEO}}" type="video/mp4"></video>
+     <button class="vt-play" aria-label="Play the checkout walkthrough"><span></span></button>
+     <span class="vt-dur">1:18</span>
+    </div>
+   </figure>
+   <div class="cs-copy rv d1">
+    <h3>A manual-payment checkout that still feels like checkout.</h3>
+    <p>Instead of sending payment details by email after the order, buyers pay on the spot:</p>
+    <ul class="cs-list">
+     <li><b>1</b><span>They pick Zelle, Cash App, Venmo, PayPal, bank transfer or USDC right at checkout.</span></li>
+     <li><b>2</b><span>The store's details, exact amount and order reference appear with one-tap copy buttons.</span></li>
+     <li><b>3</b><span>They upload proof of payment before placing the order.</span></li>
+     <li><b>4</b><span>The order waits On hold until the owner checks the receipt and approves it.</span></li>
+    </ul>
+    <div class="cs-tags"><span>WooCommerce</span><span>Research peptides</span><span>Custom checkout</span><span>Mobile-first</span></div>
+    <a class="btn btn-gold" href="https://calendar.app.google/zokGimp6miS6uLni7" target="_blank" rel="noopener">Get this on your store →</a>
+   </div>
   </div>
  </div>
 </section>
