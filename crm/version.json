@@ -1,6 +1,6 @@
 {
-  "version": "1.4.2",
-  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/532d57f7e3dedca8da1e9275a5961487b44de854/crm/felixeweb-crm.zip",
-  "sha256": "f5b0382fcbbc3fbce7ea44ac14835995472671acc6549624718e507e6c87b678",
-  "notes": "Cleaner country grouping in What gets replies; faster update checks."
+  "version": "1.4.4",
+  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/7b2475d0383c5c1ab81b3dcb45b90328c431f45c/crm/releases/felixeweb-crm-1.4.4.zip",
+  "sha256": "5e4a934a7fa27f2902946bc6f42713f7bd22fa78ff39b80308a46820064be108",
+  "notes": "Hub updates card in Settings with one-tap install; cleaner country grouping."
 }
