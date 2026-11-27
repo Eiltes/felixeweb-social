@@ -1,6 +1,6 @@
 {
-  "version": "1.5.4",
-  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/fea806b5717e98f5a7e0fad452878c107a1b35c9/crm/releases/felixeweb-crm-1.5.4.zip",
-  "sha256": "fd63b19ef613b64224c25f7ced3274dfeae9e94c82d77a2c7e118872c89f53f1",
-  "notes": "Team members can be added without an email (website card only) and get a login later."
+  "version": "1.6.0",
+  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/7d5e9e46c3a1a290b92098f67c9f588136c81f7e/crm/releases/felixeweb-crm-1.6.0.zip",
+  "sha256": "bb257ba6e1e4eb42d3588feff2c7e7d51e8afc0c9e945192070d730c7b441b22",
+  "notes": "Blog: drafts arrive for your approval, branded blog pages, affiliate links with click counts."
 }
