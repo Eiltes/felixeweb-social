@@ -1,6 +1,6 @@
 {
-  "version": "1.5.3",
-  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/36a0b3b954d333fe67a534a80b6fb738424c2a74/crm/releases/felixeweb-crm-1.5.3.zip",
-  "sha256": "70ac8cbce7d2b258207d927cff574400f51fa5098ced78d2d141a53c9e2db7ad",
-  "notes": "Website contact form sends enquiries straight into the Inbox with a task and phone alert."
+  "version": "1.5.4",
+  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/fea806b5717e98f5a7e0fad452878c107a1b35c9/crm/releases/felixeweb-crm-1.5.4.zip",
+  "sha256": "fd63b19ef613b64224c25f7ced3274dfeae9e94c82d77a2c7e118872c89f53f1",
+  "notes": "Team members can be added without an email (website card only) and get a login later."
 }
