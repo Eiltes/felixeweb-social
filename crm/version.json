@@ -1,6 +1,6 @@
 {
-  "version": "1.6.0",
-  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/7d5e9e46c3a1a290b92098f67c9f588136c81f7e/crm/releases/felixeweb-crm-1.6.0.zip",
-  "sha256": "bb257ba6e1e4eb42d3588feff2c7e7d51e8afc0c9e945192070d730c7b441b22",
-  "notes": "Blog: drafts arrive for your approval, branded blog pages, affiliate links with click counts."
+  "version": "1.7.0",
+  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/ee038a712d88e1f80ac6022a427ae777bac3e162/crm/releases/felixeweb-crm-1.7.0.zip",
+  "sha256": "458f81203a2f03ab5c360f49e2442c2ce94a55852f91b9fc3abd3bd791fca9a5",
+  "notes": "New sidebar menu, your own Hub login at /hub, team chat, and a client portal at /portal."
 }
