@@ -1,6 +1,6 @@
 {
-  "version": "1.7.1",
-  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/97434f1b4ea67f208f43c8c4aec7eb12146914ed/crm/releases/felixeweb-crm-1.7.1.zip",
-  "sha256": "322667b34e5af567bf4576ec466f3e515a8cef096ed4c2e5a56e41fb0ac8a6c6",
-  "notes": "Security: 2-step sign-in, wrong-password lockout, private chat files, hidden usernames, new Security page."
+  "version": "1.7.2",
+  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/a57e1fdfe97862a76de94e1fd712cc6909b0129a/crm/releases/felixeweb-crm-1.7.2.zip",
+  "sha256": "affcb35c5c965de4f5ab08a66204827d6994083af79141a2f4bbcf5d740f61cb",
+  "notes": "No more blue rings or flashes when you click or tap. Hover and focus colours are gold."
 }
