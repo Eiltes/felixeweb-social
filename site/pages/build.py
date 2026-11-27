@@ -176,6 +176,66 @@ EXTRA_CSS = r'''
 .val .k{font-size:40px;font-weight:300;color:var(--gold);line-height:1}
 .val h4{font-size:19px;font-weight:700;margin:14px 0 8px}.val p{color:var(--muted);font-size:14px}
 .morelink{display:flex;justify-content:center;margin-top:40px}
+/* ===== blog ===== */
+.post-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.pcard2{display:flex;flex-direction:column;border-radius:22px;overflow:hidden;background:var(--char);border:1px solid var(--line);transition:transform .4s,border-color .4s;color:var(--ivory)}
+.pcard2:hover{transform:translateY(-6px);border-color:var(--bronze)}
+.pcard2 .pimg{aspect-ratio:16/9;background:radial-gradient(ellipse at 30% 120%,rgba(176,138,46,.45),transparent 60%),#121110;position:relative;overflow:hidden}
+.pcard2 .pimg img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.pcard2:hover .pimg img{transform:scale(1.04)}
+.pcard2 .pimg .pw{position:absolute;left:22px;bottom:16px;font-size:44px;font-weight:800;letter-spacing:-2px;color:transparent;-webkit-text-stroke:1px rgba(176,138,46,.55);line-height:1}
+.pcard2 .pb{padding:22px 24px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
+.pcard2 .pc{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold)}
+.pcard2 h3{font-size:20px;font-weight:700;line-height:1.25;letter-spacing:-.4px}
+.pcard2 p{font-size:14px;color:var(--muted)}
+.pcard2 .pm{margin-top:auto;font-size:12px;color:var(--muted);display:flex;justify-content:space-between}
+.post-grid .pcard2.lead{grid-column:span 3;display:grid;grid-template-columns:1.2fr 1fr}
+.post-grid .pcard2.lead .pimg{aspect-ratio:auto;min-height:320px}
+.post-grid .pcard2.lead h3{font-size:clamp(24px,2.6vw,36px)}
+.pager{display:flex;gap:8px;justify-content:center;margin-top:46px}
+.pager a,.pager span{min-width:44px;height:44px;padding:0 14px;border-radius:22px;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;font-size:14px;font-weight:600;color:var(--soft)}
+.pager .cur{background:var(--gold);border-color:var(--gold);color:var(--onyx)}
+.cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px}
+.cats a{padding:8px 16px;border-radius:20px;border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--soft)}
+.cats a.on,.cats a:hover{border-color:var(--gold);color:var(--gold)}
+.post-head{padding:clamp(150px,15vw,200px) 0 clamp(40px,5vw,60px);position:relative;overflow:hidden}
+.post-head .glow{width:900px;height:900px;right:-300px;top:-400px}
+.post-head .wrap{max-width:900px}
+.post-head h1{font-weight:800;font-size:clamp(36px,5vw,68px);line-height:1.02;letter-spacing:-.04em;margin:20px 0 22px}
+.post-head .meta{display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:14px;color:var(--muted)}
+.post-head .meta .by{display:flex;gap:10px;align-items:center;color:var(--soft)}
+.post-head .meta img{width:36px;height:36px;border-radius:50%;object-fit:cover;object-position:top;border:1px solid var(--bronze)}
+.post-feat{max-width:1100px;margin:0 auto clamp(30px,4vw,50px);padding:0 24px}
+.post-feat img{width:100%;border-radius:24px;border:1px solid var(--line)}
+.prose{max-width:760px;margin:0 auto;padding:0 24px clamp(60px,7vw,90px);font-size:18px;line-height:1.75;color:var(--soft)}
+.prose>*+*{margin-top:1.15em}
+.prose h2{font-size:clamp(26px,2.8vw,36px);line-height:1.15;letter-spacing:-.03em;color:var(--ivory);margin-top:1.9em;font-weight:800}
+.prose h3{font-size:22px;line-height:1.25;color:var(--ivory);margin-top:1.6em;font-weight:700}
+.prose strong{color:var(--ivory)}
+.prose a{color:var(--gold);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.prose a:hover{color:#d4ad4f}
+.prose ul,.prose ol{padding-left:1.3em}.prose li+li{margin-top:.45em}
+.prose ul li::marker{color:var(--gold)}
+.prose blockquote{border-left:3px solid var(--gold);padding:6px 0 6px 22px;color:var(--ivory);font-style:italic}
+.prose img{border-radius:16px;border:1px solid var(--line)}
+.prose table{width:100%;border-collapse:collapse;font-size:15px;display:block;overflow-x:auto}
+.prose th,.prose td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}
+.prose th{background:#151412;color:var(--ivory)}
+.prose code{background:#1a1916;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:.88em}
+.prose hr{border:0;border-top:1px solid var(--line);margin:2.4em 0}
+.prose .box,.disclosure{background:var(--char);border:1px solid var(--line);border-radius:16px;padding:18px 20px;font-size:15px}
+.disclosure{border-left:3px solid var(--gold);color:var(--muted);margin-bottom:1.6em!important}
+.post-cta{max-width:760px;margin:0 auto 40px;padding:0 24px}
+.post-cta .in{border-radius:24px;padding:32px;background:radial-gradient(ellipse at 80% 120%,rgba(176,138,46,.3),transparent 60%),var(--char);border:1px solid var(--line)}
+.post-cta h3{font-size:clamp(24px,2.6vw,32px);font-weight:800;letter-spacing:-.03em;line-height:1.1}
+.post-cta p{color:var(--soft);margin:10px 0 20px}
+.post-cta .row{display:flex;gap:12px;flex-wrap:wrap}
+.share{max-width:760px;margin:0 auto 60px;padding:0 24px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;font-size:13px;color:var(--muted)}
+.share a{padding:8px 14px;border:1px solid var(--line);border-radius:20px;color:var(--soft)}
+.share a:hover{border-color:var(--gold);color:var(--gold)}
+@media (max-width:1000px){.post-grid{grid-template-columns:1fr 1fr}.post-grid .pcard2.lead{grid-column:span 2;grid-template-columns:1fr}.post-grid .pcard2.lead .pimg{min-height:0;aspect-ratio:16/9}}
+@media (max-width:640px){.post-grid{grid-template-columns:1fr}.post-grid .pcard2.lead{grid-column:auto}.prose{font-size:17px}}
+
 @media (max-width:1100px){.wwd a,.wwd a.big{grid-column:span 3}.vals{grid-template-columns:repeat(2,minmax(0,1fr))}.fgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.fgrid .fi:nth-child(3n){border-right:1px solid var(--line)}.fgrid .fi:nth-child(2n){border-right:0}}
 @media (max-width:900px){.phero-grid,.split,.contact-grid{grid-template-columns:1fr}.vis{aspect-ratio:4/3}.split .vis{order:-1}}
 @media (max-width:640px){.wwd{grid-template-columns:1fr}.wwd a,.wwd a.big{grid-column:auto;min-height:0}.fgrid,.fgrid.two{grid-template-columns:1fr}.fi{border-right:0!important}.vals{grid-template-columns:1fr}.form{grid-template-columns:1fr}.phero h1{font-size:clamp(40px,11.5vw,60px)}#mobile-menu .subs{grid-template-columns:1fr;padding-left:20px}.v-phone{width:52%}}
@@ -221,7 +281,7 @@ def header(active):
   <a href="/" class="brand" aria-label="FelixeWeb home"><div class="fw">F<span>W</span></div><b>FELIXE<span>WEB</span></b></a>
   <nav class="links" aria-label="Main">
    <div class="dd"><a href="/services/"{' class="on"' if svc_on else ''}>Services <span class="car"></span></a><div class="dd-menu">{dd}</div></div>
-   {L('work','Work')}{L('about','About')}{L('contact','Contact')}
+   {L('work','Work')}{L('about','About')}{L('blog','Blog')}{L('contact','Contact')}
   </nav>
   <div class="nav-right">
    <span class="avail"><i class="dot"></i>TAKING NEW PROJECTS</span>
@@ -236,7 +296,8 @@ def header(active):
  <div class="subs">{subs}</div>
  <a class="m{' on' if active=='work' else ''}" href="/work/"><em>03</em>Work</a>
  <a class="m{' on' if active=='about' else ''}" href="/about/"><em>04</em>About &amp; team</a>
- <a class="m{' on' if active=='contact' else ''}" href="/contact/"><em>05</em>Contact</a>
+ <a class="m{' on' if active=='blog' else ''}" href="/blog/"><em>05</em>Blog</a>
+ <a class="m{' on' if active=='contact' else ''}" href="/contact/"><em>06</em>Contact</a>
  <a class="btn btn-gold" style="margin-top:30px;align-self:flex-start" href="{CAL}" target="_blank" rel="noopener">Book a free 30-min call →</a>
 </nav>
 '''
@@ -247,7 +308,7 @@ FOOTER = f'''<footer>
    <div><a href="/" class="brand"><div class="fw">F<span>W</span></div><b>FELIXE<span>WEB</span></b></a><p>A web and video studio founded by Felix. Stores that sell, live in 7–10 days, plus apps, 2D &amp; 3D AI video, book formatting and AI automation.</p></div>
    <div class="fcols">
     <div><h5>SERVICES</h5><ul>{''.join(f'<li><a href="/{s}/">{t}</a></li>' for s,t,d,i in SERVICES)}<li><a href="/services/">All prices</a></li></ul></div>
-    <div><h5>STUDIO</h5><ul><li><a href="/work/">Work</a></li><li><a href="/about/">About &amp; team</a></li><li><a href="/contact/">Contact</a></li><li><a href="/contact/#faq">FAQ</a></li></ul></div>
+    <div><h5>STUDIO</h5><ul><li><a href="/work/">Work</a></li><li><a href="/about/">About &amp; team</a></li><li><a href="/blog/">Blog</a></li><li><a href="/contact/">Contact</a></li><li><a href="/contact/#faq">FAQ</a></li></ul></div>
     <div><h5>FOLLOW</h5><ul><li><a href="{IG}" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.threads.com/@felixeweb" target="_blank" rel="noopener">Threads</a></li><li><a href="https://www.behance.net/felixeweb" target="_blank" rel="noopener">Behance</a></li><li><a href="{FIVERR}" target="_blank" rel="noopener">Fiverr (65+ reviews)</a></li></ul></div>
     <div><h5>CONTACT</h5><ul><li><a href="mailto:hello@felixeweb.com">hello@felixeweb.com</a></li><li><a href="{CAL}" target="_blank" rel="noopener">Book a free call</a></li><li><a href="/contact/">Start a project</a></li></ul></div>
    </div>
@@ -702,3 +763,12 @@ os.makedirs('out', exist_ok=True)
 for k, v in pages.items():
     open(f'out/{k}.html', 'w').write(v)
     print(k, len(v))
+
+# ---------- chrome for the Hub blog templates ----------
+PLUG = os.environ.get('FW_PLUGIN', '/home/claude/fwcrm/felixeweb-crm/assets/site')
+os.makedirs(PLUG, exist_ok=True)
+open(os.path.join(PLUG, 'site.css'), 'w').write(CSS + EXTRA_CSS)
+open(os.path.join(PLUG, 'header.html'), 'w').write(header('blog'))
+open(os.path.join(PLUG, 'footer.html'), 'w').write(FOOTER)
+open(os.path.join(PLUG, 'site.js'), 'w').write(JS)
+print('chrome written to', PLUG)
