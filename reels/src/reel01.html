@@ -145,6 +145,13 @@ window.render=function(f){
  $('s5').querySelector('.h1').style.transform=`translateY(${(1-p5)*60}px)`;
  rise($('pills'),t,15.6,.5,30);
 };
+const _r=window.render;
+const OLD=[[0,3.2],[3.2,8.2],[8.2,11.4],[11.4,14.6],[14.6,18]];
+const NEW=[[0,6.0],[6.0,12.7],[12.7,16.7],[16.7,21.8],[21.8,30.5]];
+window.render=function(f){const t=f/FPS;let i=NEW.findIndex(([a,b])=>t<b);if(i<0)i=4;
+ const [an,bn]=NEW[i],[ao,bo]=OLD[i];const L=.35;let to;
+ if(t>bn-L&&i<4) to=bo-(bn-t); else to=ao+Math.min(t-an,(bo-ao)-L);
+ _r(Math.round(to*FPS*1000)/1000);};
 window.render(0);
 </script>
 </body></html>
