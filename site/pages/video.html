@@ -345,6 +345,24 @@ body.admin-bar header#top{top:32px}
  .tm-b span{display:block;color:#B08A2E;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin:6px 0 10px}
  .tm-b p{color:var(--soft);font-size:14px;line-height:1.6;margin:0}
  
+/* Home team: founder large on the left, team 2x2 on the right */
+.tm-split{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:20px;align-items:stretch}
+.tm-lead{position:relative;min-height:560px;justify-content:flex-end}
+.tm-lead .tm-ph{position:absolute;inset:0;aspect-ratio:auto;height:100%}
+.tm-lead .tm-ph img{filter:none}
+.tm-lead .tm-b{position:relative;z-index:1;padding:120px 30px 30px;background:linear-gradient(180deg,transparent,rgba(10,10,10,.82) 38%,#0A0A0A)}
+.tm-lead .tm-b h3{font-size:clamp(26px,2.6vw,34px);letter-spacing:-.02em}
+.tm-lead .tm-b p{font-size:15px;max-width:420px}
+.tm-four{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:20px}
+.tm-four .tm-ph{aspect-ratio:auto;height:clamp(170px,15vw,230px);flex:none}
+.tm-four .tm-b{padding:18px 20px 20px;flex:1}
+.tm-four .tm-b h3{font-size:18px}
+.tm-four .tm-b span{font-size:11px;margin:5px 0 8px}
+.tm-four .tm-b p{font-size:13.5px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tm-split .tm:hover{transform:translateY(-4px);border-color:#5a4720}
+@media (max-width:900px){.tm-split{grid-template-columns:1fr}.tm-lead{min-height:480px}}
+@media (max-width:520px){.tm-lead{min-height:440px}.tm-four{gap:12px}.tm-four .tm-ph{height:150px}.tm-four .tm-b{padding:14px 14px 16px}.tm-four .tm-b h3{font-size:15px}.tm-four .tm-b span{font-size:10px;letter-spacing:.05em}.tm-four .tm-b p{font-size:12.5px;display:block;-webkit-line-clamp:unset;overflow:visible}}
+
 .wr-wrap{margin-top:clamp(50px,6vw,80px)}
 .wr{margin:0;background:#141414;border:1px solid #26231e;border-radius:20px;padding:24px 24px 20px;display:flex;flex-direction:column;gap:14px;transition:border-color .3s,transform .3s}
 .wr:hover{border-color:#5a4720;transform:translateY(-3px)}
@@ -733,6 +751,14 @@ body.admin-bar header#top{top:32px}
    var b=document.createElement('div');b.className='tm-b';var h=document.createElement('h3');h.textContent=m.name;var s=document.createElement('span');s.textContent=m.title;b.appendChild(h);b.appendChild(s);
    if(m.bio){var p=document.createElement('p');p.textContent=m.bio;b.appendChild(p)}c.appendChild(ph);c.appendChild(b);g.appendChild(c)})}).catch(function(){})}
 
+ // home team: founder large, team 2x2
+ var sp=$('#tmSplit');if(sp&&window.fetch){fetch('/wp-json/fwcrm/v1/team').then(function(r){return r.json()}).then(function(list){
+  if(!Array.isArray(list)||!list.length)return;var four=sp.querySelector('.tm-four'),lead=sp.querySelector('.tm-lead');
+  var fi=0;list.forEach(function(m,i){if(/founder/i.test(m.title||''))fi=i});
+  function fill(card,m){var ph=card.querySelector('.tm-ph');ph.innerHTML='';if(m.photo){var i=document.createElement('img');i.src=m.photo;i.alt=m.name+', '+m.title+' at FelixeWeb';i.loading='lazy';ph.appendChild(i)}else{var n=document.createElement('div');n.className='ini';n.textContent=(m.name||'?').charAt(0);ph.appendChild(n)}
+   var b=card.querySelector('.tm-b');b.innerHTML='';var h=document.createElement('h3');h.textContent=m.name;var s=document.createElement('span');s.textContent=m.title;b.appendChild(h);b.appendChild(s);if(m.bio){var p=document.createElement('p');p.textContent=m.bio;b.appendChild(p)}}
+  fill(lead,list[fi]);four.innerHTML='';list.forEach(function(m,i){if(i===fi)return;var c=document.createElement('div');c.className='tm';c.innerHTML='<div class="tm-ph"></div><div class="tm-b"></div>';fill(c,m);four.appendChild(c)});
+  sp.classList.toggle('odd',(list.length-1)%2===1)}).catch(function(){})}
  // carousels (reviews, team)
  function carInit(c){var t=c.querySelector('.car-track'),pv=c.querySelector('.prev'),nx=c.querySelector('.next'),dots=c.querySelector('.car-dots'),auto=null,hold=false;
   function step(){var k=t.children[0];return k?k.getBoundingClientRect().width+parseFloat(getComputedStyle(t).columnGap||getComputedStyle(t).gap||20):t.clientWidth}

@@ -356,6 +356,14 @@ JS = r'''<script>
    var b=document.createElement('div');b.className='tm-b';var h=document.createElement('h3');h.textContent=m.name;var s=document.createElement('span');s.textContent=m.title;b.appendChild(h);b.appendChild(s);
    if(m.bio){var p=document.createElement('p');p.textContent=m.bio;b.appendChild(p)}c.appendChild(ph);c.appendChild(b);g.appendChild(c)})}).catch(function(){})}
 
+ // home team: founder large, team 2x2
+ var sp=$('#tmSplit');if(sp&&window.fetch){fetch('/wp-json/fwcrm/v1/team').then(function(r){return r.json()}).then(function(list){
+  if(!Array.isArray(list)||!list.length)return;var four=sp.querySelector('.tm-four'),lead=sp.querySelector('.tm-lead');
+  var fi=0;list.forEach(function(m,i){if(/founder/i.test(m.title||''))fi=i});
+  function fill(card,m){var ph=card.querySelector('.tm-ph');ph.innerHTML='';if(m.photo){var i=document.createElement('img');i.src=m.photo;i.alt=m.name+', '+m.title+' at FelixeWeb';i.loading='lazy';ph.appendChild(i)}else{var n=document.createElement('div');n.className='ini';n.textContent=(m.name||'?').charAt(0);ph.appendChild(n)}
+   var b=card.querySelector('.tm-b');b.innerHTML='';var h=document.createElement('h3');h.textContent=m.name;var s=document.createElement('span');s.textContent=m.title;b.appendChild(h);b.appendChild(s);if(m.bio){var p=document.createElement('p');p.textContent=m.bio;b.appendChild(p)}}
+  fill(lead,list[fi]);four.innerHTML='';list.forEach(function(m,i){if(i===fi)return;var c=document.createElement('div');c.className='tm';c.innerHTML='<div class="tm-ph"></div><div class="tm-b"></div>';fill(c,m);four.appendChild(c)});
+  sp.classList.toggle('odd',(list.length-1)%2===1)}).catch(function(){})}
  // carousels (reviews, team)
  function carInit(c){var t=c.querySelector('.car-track'),pv=c.querySelector('.prev'),nx=c.querySelector('.next'),dots=c.querySelector('.car-dots'),auto=null,hold=false;
   function step(){var k=t.children[0];return k?k.getBoundingClientRect().width+parseFloat(getComputedStyle(t).columnGap||getComputedStyle(t).gap||20):t.clientWidth}
@@ -456,6 +464,11 @@ def steps(items, id_='proc'):
     st = ''.join(f'<div class="step"><span class="pt"></span><div class="d">{d}</div><h4>{t}</h4><p>{p}</p></div>' for d,t,p in items)
     return f'<div class="process" id="{id_}"><div class="pline"><b></b></div>{st}</div>'
 
+def team_split():
+    lead = ('<div class="tm tm-lead"><div class="tm-ph"><img src="/wp-content/uploads/2026/11/felix.webp" alt="Felix, founder of FelixeWeb" loading="lazy"></div>'
+            '<div class="tm-b"><h3>Felix</h3><span>Founder</span><p>Founder of FelixeWeb. Felix designs and launches WordPress and WooCommerce stores and leads every project, from the first call to launch day.</p></div></div>')
+    return f'<div class="tm-split rv" id="tmSplit">{lead}<div class="tm-four"></div></div>'
+
 def team_grid(car=False):
     g = team_grid_html()
     if not car: return g
@@ -509,7 +522,7 @@ home_work = f'''<section id="work">
 home_team = f'''<section id="team" style="padding-top:0">
  <div class="wrap">
   {head('The team', 'The people behind <em>FelixeWeb</em>.', 'Felix leads every project, with a small team of 2D and 3D AI video creators, a book formatter and a WordPress &amp; AI automation developer.')}
-  {team_grid(True)}
+  {team_split()}
   <div class="morelink rv"><a class="btn btn-ghost mag" href="/about/">About the studio <span class="arr">→</span></a></div>
  </div>
 </section>'''
