@@ -4,6 +4,8 @@ import re, os, json
 
 BASE = open('base.html').read()
 CSS = open('base.css').read()
+from reviews import CSS as _WRCSS
+CSS += _WRCSS
 CAL = 'https://calendar.app.google/zokGimp6miS6uLni7'
 FIVERR = 'https://www.fiverr.com/s/odWybEX'
 IG = 'https://www.instagram.com/felixeweb/'
@@ -18,7 +20,14 @@ def card(url_part):
     for c in CARDS:
         if url_part in c: return c
     raise KeyError(url_part)
-REVIEWS = sec('reviews')
+REVIEWS_VIDEO = sec('reviews')
+from reviews import wr_block, HOME as WR_HOME, WEB as WR_WEB, VIDEO as WR_VIDEO, ALL as WR_ALL, CSS as WR_CSS
+def reviews_sec(keys):
+    i = REVIEWS_VIDEO.rindex('</div>\n</section>')
+    return REVIEWS_VIDEO[:i] + '<div class="wr-wrap">' + wr_block(keys, FIVERR) + '</div>' + REVIEWS_VIDEO[i:]
+REVIEWS = reviews_sec(WR_HOME)
+def reviews_only(keys, title, label='Client reviews'):
+    return f'<section id="reviews" aria-label="Client reviews"><div class="wrap">' + wr_block(keys, FIVERR, title, label) + '</div></section>'
 CASE = sec('case-study')
 PROCESS = sec('process')
 SVC = sec('services')
@@ -554,7 +563,7 @@ web_body = phero(['<a href="/services/">Services</a>', 'Websites &amp; stores'],
   <div class="morelink rv"><a class="btn btn-ghost mag" href="/work/">See all work <span class="arr">→</span></a></div>
  </div>
 </section>
-''' + faqs(web_faq) + '\n' + cta('Let’s get your store <em>live</em>.', 'Book a free 30-minute call. We’ll look at your products, goals and timeline, and you’ll leave with a clear plan.')
+''' + reviews_only(WR_WEB, 'Store owners, in their <em>own</em> words.') + '\n' + faqs(web_faq) + '\n' + cta('Let’s get your store <em>live</em>.', 'Book a free 30-minute call. We’ll look at your products, goals and timeline, and you’ll leave with a clear plan.')
 pages['web-design'] = page('Websites & stores', 'web-design', web_body, [ORG, faq_schema(web_faq)])
 
 # ---------------- APPS ----------------
@@ -626,7 +635,7 @@ vid_body = phero(['<a href="/services/">Services</a>', '2D &amp; 3D AI video'], 
   {fgrid([('01','Clinics &amp; healthcare','Explain a treatment or service so patients understand and book.'),('02','Apps &amp; software','Show what your product does in under a minute.'),('03','Online stores','Product animations and ads for launches and social.'),('04','Service businesses','Walk customers through how you work.'),('05','Authors','Book trailers and promo videos.'),('06','Your own footage','Edits, captions, music and colour for reels and YouTube.')])}
  </div>
 </section>
-''' + faqs(vid_faq) + '\n' + cta('Let’s make your <em>video</em>.', 'Book a free 30-minute call or send a short brief. We’ll suggest the right style and give you a fixed quote.', 'ACTION')
+''' + reviews_only(WR_VIDEO, 'Clients on their <em>videos</em>.') + '\n' + faqs(vid_faq) + '\n' + cta('Let’s make your <em>video</em>.', 'Book a free 30-minute call or send a short brief. We’ll suggest the right style and give you a fixed quote.', 'ACTION')
 pages['video'] = page('2D & 3D AI video', 'video', vid_body, [ORG, faq_schema(vid_faq)])
 
 # ---------------- BOOK FORMATTING ----------------
@@ -704,7 +713,7 @@ pages['ai-automation'] = page('AI automation', 'ai-automation', auto_body, [ORG,
 
 # ---------------- WORK ----------------
 work_full = WORK_SEC.replace('Stores, sites &amp; products I’ve <em>launched</em>.', 'Every <em>project</em>, live.').replace('<section id="work">', '<section id="work" style="padding-top:clamp(60px,7vw,100px)">')
-work_body = phero(['Work'], 'Stores, sites &amp; products we’ve <em>launched</em>.', 'Real client projects, live on the web. Tap any card to visit the site, filter by type, or watch the case study and client reviews below.', 'WORK', ctas=f'<a class="btn btn-gold mag" href="{CAL}" target="_blank" rel="noopener">Book a free call <span class="arr">→</span></a><a class="btn btn-ghost mag" href="#reviews">Client reviews</a>') + work_full + REVIEWS + CASE + '\n' + cta('Want yours <em>next</em>?', 'Book a free 30-minute call and we’ll plan your build together.')
+work_body = phero(['Work'], 'Stores, sites &amp; products we’ve <em>launched</em>.', 'Real client projects, live on the web. Tap any card to visit the site, filter by type, or watch the case study and client reviews below.', 'WORK', ctas=f'<a class="btn btn-gold mag" href="{CAL}" target="_blank" rel="noopener">Book a free call <span class="arr">→</span></a><a class="btn btn-ghost mag" href="#reviews">Client reviews</a>') + work_full + reviews_sec(WR_ALL) + CASE + '\n' + cta('Want yours <em>next</em>?', 'Book a free 30-minute call and we’ll plan your build together.')
 pages['work'] = page('Work', 'work', work_body, [ORG])
 
 # ---------------- ABOUT ----------------
