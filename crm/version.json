@@ -1,6 +1,6 @@
 {
-  "version": "1.7.5",
-  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/4bb50489a4ea4df960c16f97d8d42f72c5965929/crm/releases/felixeweb-crm-1.7.5.zip",
-  "sha256": "53bf1c06c942146e6a80a591a61d0fe8bc5aca44ad59bd3c160da848f460ea46",
-  "notes": "Website: no more blue hover on links or blue borders on form boxes."
+  "version": "1.7.6",
+  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/c24505a0dab5cf9f4b995e4a8d2eaac9d3d1b90f/crm/releases/felixeweb-crm-1.7.6.zip",
+  "sha256": "2592ff62e1181a24987421872b79cf74df1a1822fbcf0f4a9006ed0e9cbef065",
+  "notes": "Website: blue hover fix now also covers styles that load late (contact page, signup forms)."
 }
