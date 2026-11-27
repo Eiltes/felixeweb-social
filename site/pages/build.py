@@ -154,6 +154,8 @@ EXTRA_CSS = r'''
 .form label{display:flex;flex-direction:column;gap:8px;font-size:13px;font-weight:600;color:var(--soft)}
 .form input,.form select,.form textarea{font:inherit;font-size:15px;color:var(--ivory);background:#0f0f0f;border:1px solid var(--line);border-radius:12px;padding:14px 16px;outline:none;transition:border-color .3s;width:100%}
 .form textarea{min-height:150px;resize:vertical}
+.elementor-widget-html .form input,.elementor-widget-html .form select{height:52px!important;min-height:52px;line-height:1.3!important;padding:0 16px!important}
+.elementor-widget-html .form select{padding-right:40px!important}
 .form input:focus,.form select:focus,.form textarea:focus{border-color:var(--gold)}
 .form select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);background-position:calc(100% - 22px) 52%,calc(100% - 16px) 52%;background-size:6px 6px;background-repeat:no-repeat}
 .form .hp{position:absolute;left:-9999px}
