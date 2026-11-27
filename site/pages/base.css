@@ -329,7 +329,7 @@ body.admin-bar header#top{top:32px}
 @media (max-width:900px){.cs{grid-template-columns:1fr}}
 
 /* team */
- .tm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+ .tm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:18px}
  .tm{background:var(--char);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .4s,border-color .4s}
  .tm:hover{transform:translateY(-4px);border-color:#7A5C1C}
  .tm-ph{aspect-ratio:4/4.4;background:#141210;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
