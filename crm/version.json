@@ -1,6 +1,6 @@
 {
-  "version": "1.7.6",
-  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/c24505a0dab5cf9f4b995e4a8d2eaac9d3d1b90f/crm/releases/felixeweb-crm-1.7.6.zip",
-  "sha256": "2592ff62e1181a24987421872b79cf74df1a1822fbcf0f4a9006ed0e9cbef065",
-  "notes": "Website: blue hover fix now also covers styles that load late (contact page, signup forms)."
+  "version": "1.7.7",
+  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/b00f0f30baf57cff9bee2e024dc8db9067777762/crm/releases/felixeweb-crm-1.7.7.zip",
+  "sha256": "cf02c9c34f7daa1c04f996db9b909c97e9418959bafa09709395dbccaf1d00e5",
+  "notes": "Website: card titles no longer turn blue on hover; theme accent colour is gold."
 }
