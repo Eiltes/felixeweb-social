@@ -1,6 +1,6 @@
 {
-  "version": "1.7.2",
-  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/a57e1fdfe97862a76de94e1fd712cc6909b0129a/crm/releases/felixeweb-crm-1.7.2.zip",
-  "sha256": "affcb35c5c965de4f5ab08a66204827d6994083af79141a2f4bbcf5d740f61cb",
-  "notes": "No more blue rings or flashes when you click or tap. Hover and focus colours are gold."
+  "version": "1.7.3",
+  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/d0bda59fecbe6d0ff580ab80eed416f7dfcff159/crm/releases/felixeweb-crm-1.7.3.zip",
+  "sha256": "e968b2f5bf2e13684217ec3588e861d25f2928e8c989b5d5c1a6e1fbda61e466",
+  "notes": "No more blue rings or flashes when you click or tap, in the Hub, portal and website. Hover and focus colours are gold."
 }
