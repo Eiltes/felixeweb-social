@@ -1,6 +1,6 @@
 {
-  "version": "1.7.0",
-  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/ee038a712d88e1f80ac6022a427ae777bac3e162/crm/releases/felixeweb-crm-1.7.0.zip",
-  "sha256": "458f81203a2f03ab5c360f49e2442c2ce94a55852f91b9fc3abd3bd791fca9a5",
-  "notes": "New sidebar menu, your own Hub login at /hub, team chat, and a client portal at /portal."
+  "version": "1.7.1",
+  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/97434f1b4ea67f208f43c8c4aec7eb12146914ed/crm/releases/felixeweb-crm-1.7.1.zip",
+  "sha256": "322667b34e5af567bf4576ec466f3e515a8cef096ed4c2e5a56e41fb0ac8a6c6",
+  "notes": "Security: 2-step sign-in, wrong-password lockout, private chat files, hidden usernames, new Security page."
 }
