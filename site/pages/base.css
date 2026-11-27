@@ -349,11 +349,13 @@ body.admin-bar header#top{top:32px}
 .tm-lead .tm-b h3{font-size:clamp(26px,2.6vw,34px);letter-spacing:-.02em}
 .tm-lead .tm-b p{font-size:15px;max-width:420px}
 .tm-four{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:20px}
-.tm-four .tm-ph{aspect-ratio:auto;height:clamp(170px,15vw,230px);flex:none}
+.tm-four .tm-ph{aspect-ratio:10/10.4;height:auto;flex:none}
+.tm-four .tm-ph img{object-position:50% 12%}
+.tm-lead .tm-ph img{object-position:50% 18%}
 .tm-four .tm-b{padding:18px 20px 20px;flex:1}
 .tm-four .tm-b h3{font-size:18px}
 .tm-four .tm-b span{font-size:11px;margin:5px 0 8px}
 .tm-four .tm-b p{font-size:13.5px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .tm-split .tm:hover{transform:translateY(-4px);border-color:#5a4720}
 @media (max-width:900px){.tm-split{grid-template-columns:1fr}.tm-lead{min-height:480px}}
-@media (max-width:520px){.tm-lead{min-height:440px}.tm-four{gap:12px}.tm-four .tm-ph{height:150px}.tm-four .tm-b{padding:14px 14px 16px}.tm-four .tm-b h3{font-size:15px}.tm-four .tm-b span{font-size:10px;letter-spacing:.05em}.tm-four .tm-b p{font-size:12.5px;display:block;-webkit-line-clamp:unset;overflow:visible}}
+@media (max-width:520px){.tm-lead{min-height:440px}.tm-four{gap:12px}.tm-four .tm-ph{aspect-ratio:10/10.6}.tm-four .tm-b{padding:14px 14px 16px}.tm-four .tm-b h3{font-size:15px}.tm-four .tm-b span{font-size:10px;letter-spacing:.05em}.tm-four .tm-b p{font-size:12.5px;display:block;-webkit-line-clamp:unset;overflow:visible}}
