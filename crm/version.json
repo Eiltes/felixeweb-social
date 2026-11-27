@@ -1,6 +1,6 @@
 {
-  "version": "1.5.1",
-  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/f9c2bbad3d98f62c2f76714b8bf2f95dac2a3a82/crm/releases/felixeweb-crm-1.5.1.zip",
-  "sha256": "c5b73f6edc2ad0d43b63b5d0a97a0ebe2ff864ac17df173f63eb3e46d6b57efc",
-  "notes": "Book formatting added as a project service, plus a Books lane for author leads."
+  "version": "1.5.2",
+  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/d72366f11b9529d1a4c863992d159a50cedd3f1c/crm/releases/felixeweb-crm-1.5.2.zip",
+  "sha256": "c28b958e489a5f4a1c8d8c993a3f7b11d5749eff1593add599050e90bef70fe8",
+  "notes": "Book formatting and AI automation project services, Books lane."
 }
