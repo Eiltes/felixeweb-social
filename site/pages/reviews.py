@@ -32,18 +32,23 @@ def wr_cards(keys):
                 + f'<figcaption><span class="wr-av">{user[0].upper()}</span><span><b>{user}</b><small>{country} · via Fiverr</small></span></figcaption></figure>')
     return out
 
+def carousel(track, label):
+    arrow = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>'
+    return (f'<div class="car" data-car role="region" aria-label="{label}">{track}'
+            f'<div class="car-nav"><button type="button" class="car-btn prev" aria-label="Previous">{arrow}</button>'
+            f'<div class="car-dots"></div><button type="button" class="car-btn next" aria-label="Next">{arrow}</button></div></div>')
+
 def wr_block(keys, fiverr, title='What clients <em>write</em>.', label='Written reviews', intro=True):
     head = (f'<div class="sec-head"><div><div class="label rv">{label}</div><h2 class="rv d1">{title}</h2></div>'
             f'<p class="rv d2">Word for word from Fiverr, unedited.</p></div>') if intro else ''
     badge = (f'<div class="wr-badge rv"><div class="wr-score"><b>4.9</b><span>{STAR*5}</span></div>'
              f'<p><b>65+ five-star reviews</b> on Fiverr</p>'
              f'<a class="btn btn-ghost mag" href="{fiverr}" target="_blank" rel="noopener">Read all reviews on Fiverr <span class="arr">→</span></a></div>')
-    return head + f'<div class="wr-grid">{wr_cards(keys)}</div>' + badge
+    return head + carousel(f'<div class="wr-grid car-track">{wr_cards(keys)}</div>', 'Client reviews') + badge
 
 CSS = '''
 .wr-wrap{margin-top:clamp(50px,6vw,80px)}
-.wr-grid{columns:3 320px;column-gap:20px}
-.wr{break-inside:avoid;margin:0 0 20px;background:#141414;border:1px solid #26231e;border-radius:20px;padding:24px 24px 20px;display:flex;flex-direction:column;gap:14px;transition:border-color .3s,transform .3s}
+.wr{margin:0;background:#141414;border:1px solid #26231e;border-radius:20px;padding:24px 24px 20px;display:flex;flex-direction:column;gap:14px;transition:border-color .3s,transform .3s}
 .wr:hover{border-color:#5a4720;transform:translateY(-3px)}
 .wr-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
 .wr-stars svg,.wr-score svg{width:15px;height:15px;fill:#B08A2E;margin-right:2px}
@@ -64,12 +69,27 @@ CSS = '''
 .wr-score b{font-size:34px;font-weight:800;color:#F3EEE4;letter-spacing:-.02em}
 .wr-badge p{margin:0;color:#cfc8bb;flex:1;min-width:180px}
 .wr-badge p b{color:#F3EEE4}
-@media (max-width:700px){
- .wr-grid{columns:auto;display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:0 20px 8px;scrollbar-width:none}
- .wr-grid::-webkit-scrollbar{display:none}
- .wr{flex:0 0 86%;scroll-snap-align:center;margin:0}
- .wr:hover{transform:none}
- .wr-badge{flex-direction:column;align-items:flex-start;gap:12px}
- .wr-badge .btn{width:100%;justify-content:center}
+@media (max-width:700px){.wr-badge{flex-direction:column;align-items:flex-start;gap:12px}.wr-badge .btn{width:100%;justify-content:center}}
+/* carousel */
+.car{position:relative}
+.car-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-ms-overflow-style:none;padding:4px 2px 6px;cursor:grab;overscroll-behavior-x:contain}
+.car-track::-webkit-scrollbar{display:none}
+.car-track.drag{cursor:grabbing;scroll-snap-type:none;user-select:none}
+.car-track.drag *{pointer-events:none}
+.car-track>*{flex:0 0 calc((100% - 40px)/3);scroll-snap-align:start;min-width:0}
+.wr-grid.car-track>.wr{align-self:stretch}
+.tm-grid.car-track{display:flex}
+.tm-grid.car-track>.tm{flex-basis:calc((100% - 54px)/4)}
+.car-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:18px}
+.car-btn{width:46px;height:46px;border-radius:50%;border:1px solid #3a3226;background:#141414;color:#F3EEE4;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,border-color .25s,color .25s,opacity .25s;flex:none}
+.car-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.car-btn.prev svg{transform:rotate(180deg)}
+.car-btn:hover{background:#B08A2E;border-color:#B08A2E;color:#0A0A0A}
+.car-btn[disabled]{opacity:.3;cursor:default;background:#141414;border-color:#3a3226;color:#F3EEE4}
+.car-dots{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.car-dots button{width:8px;height:8px;border-radius:99px;border:0;padding:0;background:#3a3226;cursor:pointer;transition:width .3s,background .3s}
+.car-dots button.on{width:26px;background:#B08A2E}
+@media (max-width:1000px){.car-track>*{flex-basis:calc((100% - 20px)/2)}.tm-grid.car-track>.tm{flex-basis:calc((100% - 36px)/2.6)}}
+@media (max-width:700px){.car-track{gap:14px;margin:0 -20px;padding:4px 20px 6px;scroll-padding:0 20px}.car-track>*{flex-basis:86%}.tm-grid.car-track>.tm{flex-basis:72%}.car-btn{width:42px;height:42px}}
 }
 '''

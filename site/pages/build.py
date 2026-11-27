@@ -355,6 +355,28 @@ JS = r'''<script>
    if(m.photo){var i=document.createElement('img');i.src=m.photo;i.alt=m.name+', '+m.title+' at FelixeWeb';i.loading='lazy';ph.appendChild(i)}else{var n=document.createElement('div');n.className='ini';n.textContent=(m.name||'?').charAt(0);ph.appendChild(n)}
    var b=document.createElement('div');b.className='tm-b';var h=document.createElement('h3');h.textContent=m.name;var s=document.createElement('span');s.textContent=m.title;b.appendChild(h);b.appendChild(s);
    if(m.bio){var p=document.createElement('p');p.textContent=m.bio;b.appendChild(p)}c.appendChild(ph);c.appendChild(b);g.appendChild(c)})}).catch(function(){})}
+
+ // carousels (reviews, team)
+ function carInit(c){var t=c.querySelector('.car-track'),pv=c.querySelector('.prev'),nx=c.querySelector('.next'),dots=c.querySelector('.car-dots'),auto=null,hold=false;
+  function step(){var k=t.children[0];return k?k.getBoundingClientRect().width+parseFloat(getComputedStyle(t).columnGap||getComputedStyle(t).gap||20):t.clientWidth}
+  function pages(){return Math.max(1,Math.round((t.scrollWidth-t.clientWidth)/step())+1)}
+  function idx(){return Math.round(t.scrollLeft/step())}
+  function draw(){var n=pages();if(dots.children.length!==n){dots.innerHTML='';for(var i=0;i<n;i++){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Go to '+(i+1));(function(i){b.addEventListener('click',function(){go(i)})})(i);dots.appendChild(b)}}
+   var i=idx();[].forEach.call(dots.children,function(b,j){b.classList.toggle('on',j===i)});pv.disabled=t.scrollLeft<4;nx.disabled=t.scrollLeft>=t.scrollWidth-t.clientWidth-4;c.classList.toggle('car-off',n<2)}
+  function go(i){t.scrollTo({left:i*step(),behavior:'smooth'})}
+  pv.addEventListener('click',function(){go(Math.max(0,idx()-1));pause()});nx.addEventListener('click',function(){go(idx()+1);pause()});
+  var st;t.addEventListener('scroll',function(){clearTimeout(st);st=setTimeout(draw,60)},{passive:true});
+  // drag with mouse
+  var down=false,sx=0,sl=0,moved=false;t.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;down=true;moved=false;sx=e.clientX;sl=t.scrollLeft});
+  window.addEventListener('pointermove',function(e){if(!down)return;var dx=e.clientX-sx;if(Math.abs(dx)>5){moved=true;t.classList.add('drag')}if(moved)t.scrollLeft=sl-dx});
+  window.addEventListener('pointerup',function(){if(!down)return;down=false;if(moved){t.classList.remove('drag');go(idx());pause()}});
+  t.addEventListener('click',function(e){if(moved){e.preventDefault();e.stopPropagation();moved=false}},true);
+  // gentle autoplay, stops when people interact
+  function pause(){hold=true;clearInterval(auto)}
+  if(!reduce){auto=setInterval(function(){if(hold||document.hidden)return;var r=c.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;if(t.scrollLeft>=t.scrollWidth-t.clientWidth-4)go(0);else go(idx()+1)},6000)}
+  c.addEventListener('mouseenter',function(){hold=true});c.addEventListener('mouseleave',function(){if(auto)hold=false});t.addEventListener('touchstart',pause,{passive:true});c.addEventListener('focusin',pause);
+  window.addEventListener('resize',draw);if(window.MutationObserver)new MutationObserver(function(){setTimeout(draw,50)}).observe(t,{childList:true});draw();setTimeout(draw,800)}
+ $$('[data-car]').forEach(carInit);
  // enquiry form
  var fm=$('#enq');if(fm){var t0=Date.now();var pre=(location.search.match(/[?&]service=([a-z0-9]+)/)||[])[1];if(pre&&fm.service)fm.service.value=pre;
   fm.addEventListener('submit',function(e){e.preventDefault();var m=fm.querySelector('.msg'),btn=fm.querySelector('button');m.className='msg';btn.disabled=true;btn.style.opacity=.6;
@@ -434,7 +456,13 @@ def steps(items, id_='proc'):
     st = ''.join(f'<div class="step"><span class="pt"></span><div class="d">{d}</div><h4>{t}</h4><p>{p}</p></div>' for d,t,p in items)
     return f'<div class="process" id="{id_}"><div class="pline"><b></b></div>{st}</div>'
 
-def team_grid():
+def team_grid(car=False):
+    g = team_grid_html()
+    if not car: return g
+    from reviews import carousel
+    return carousel(g.replace('class="tm-grid"', 'class="tm-grid car-track"', 1), 'The team')
+
+def team_grid_html():
     return '<div class="tm-grid" id="tmGrid"><div class="tm"><div class="tm-ph"><img src="/wp-content/uploads/2026/11/felix.webp" alt="Felix, founder of FelixeWeb" loading="lazy"></div><div class="tm-b"><h3>Felix</h3><span>Founder</span><p>Founder of FelixeWeb. Felix designs and launches WordPress and WooCommerce stores and leads every project, from the first call to launch day.</p></div></div></div>'
 
 def wwd():
@@ -481,7 +509,7 @@ home_work = f'''<section id="work">
 home_team = f'''<section id="team" style="padding-top:0">
  <div class="wrap">
   {head('The team', 'The people behind <em>FelixeWeb</em>.', 'Felix leads every project, with a small team of 2D and 3D AI video creators, a book formatter and a WordPress &amp; AI automation developer.')}
-  {team_grid()}
+  {team_grid(True)}
   <div class="morelink rv"><a class="btn btn-ghost mag" href="/about/">About the studio <span class="arr">→</span></a></div>
  </div>
 </section>'''
