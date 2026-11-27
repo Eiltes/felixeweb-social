@@ -1,6 +1,6 @@
 {
-  "version": "1.5.0",
-  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/8d932d5f921dddbf3ee1ae37b16f6f2c4ba0981e/crm/releases/felixeweb-crm-1.5.0.zip",
-  "sha256": "418083797f8057fe58a885e3009dd1acf3b2178d13eca47f1550525312e113c7",
-  "notes": "Agency mode: Team (own logins), Projects board, assign tasks, My work for members, Video lane for healthcare leads."
+  "version": "1.5.1",
+  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/f9c2bbad3d98f62c2f76714b8bf2f95dac2a3a82/crm/releases/felixeweb-crm-1.5.1.zip",
+  "sha256": "c5b73f6edc2ad0d43b63b5d0a97a0ebe2ff864ac17df173f63eb3e46d6b57efc",
+  "notes": "Book formatting added as a project service, plus a Books lane for author leads."
 }
