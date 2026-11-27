@@ -1,6 +1,6 @@
 {
-  "version": "1.5.2",
-  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/d72366f11b9529d1a4c863992d159a50cedd3f1c/crm/releases/felixeweb-crm-1.5.2.zip",
-  "sha256": "c28b958e489a5f4a1c8d8c993a3f7b11d5749eff1593add599050e90bef70fe8",
-  "notes": "Book formatting and AI automation project services, Books lane."
+  "version": "1.5.3",
+  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/36a0b3b954d333fe67a534a80b6fb738424c2a74/crm/releases/felixeweb-crm-1.5.3.zip",
+  "sha256": "70ac8cbce7d2b258207d927cff574400f51fa5098ced78d2d141a53c9e2db7ad",
+  "notes": "Website contact form sends enquiries straight into the Inbox with a task and phone alert."
 }
