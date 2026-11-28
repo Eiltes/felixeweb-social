@@ -1,6 +1,6 @@
 {
- "version": "1.8.3",
- "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/f48a316b6213e4d948d16978e1c7312c66730126/crm/releases/felixeweb-crm-1.8.3.zip",
- "sha256": "07fa6be1529b4767a3562450f62621bf812ccaff993a624e13107977cfba62bb",
- "notes": "New 3D spinning FW coin on the page preloader."
+ "version": "1.8.4",
+ "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/cfc169dc80e6261735e232b50a016edde0f8ea6b/crm/releases/felixeweb-crm-1.8.4.zip",
+ "sha256": "a5bdeba35ed13fb240944b93d1b37cef36d2d586ed511b7efa9c958eaf80ad4c",
+ "notes": "The 3D spinning FW coin now also appears on the Hub, client portal, 2-step and WordPress sign-in screens."
 }
