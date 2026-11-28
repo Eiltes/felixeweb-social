@@ -89,7 +89,8 @@ def container(t, depth, computed):
         s['flex_direction'] = c.get('fd', 'row')
         if c.get('fw') == 'wrap': s['flex_wrap'] = 'wrap'
     else:
-        s['flex_direction'] = 'column'
+        # not flex on desktop: use the CSS default (row) so a mobile-only display:flex behaves like the original
+        s['flex_direction'] = 'row'
         if c.get('display') == 'block':
             s['css_classes'] = (s.get('css_classes', '') + ' fwb').strip()
     node = {'id': nid(), 'elType': 'container', 'isInner': depth > 0, 'settings': s, 'elements': []}
@@ -160,9 +161,9 @@ def build_part(html, tag, computed, root_class):
     soup = BeautifulSoup(html, 'html.parser')
     data_to_classes(soup)
     el = soup.find(tag)
-    node = container(el, 0, computed)
-    node['settings']['css_classes'] = (node['settings'].get('css_classes', '') + ' ' + root_class).strip()
-    return [node]
+    inner = container(el, 1, computed)
+    return [{'id': nid(), 'elType': 'container', 'isInner': False, 'elements': [inner],
+             'settings': {'content_width': 'full', 'padding': ZERO, 'css_classes': root_class, 'html_tag': 'div'}}]
 
 if __name__ == '__main__':
     src, comp, out = sys.argv[1], sys.argv[2], sys.argv[3]
