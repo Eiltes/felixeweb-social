@@ -1,6 +1,6 @@
 {
- "version": "1.8.4",
- "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/cfc169dc80e6261735e232b50a016edde0f8ea6b/crm/releases/felixeweb-crm-1.8.4.zip",
- "sha256": "a5bdeba35ed13fb240944b93d1b37cef36d2d586ed511b7efa9c958eaf80ad4c",
- "notes": "The 3D spinning FW coin now also appears on the Hub, client portal, 2-step and WordPress sign-in screens."
+ "version": "1.8.5",
+ "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/a5053fe7bcfbff1ac7248a3c2d0a6c6e431583cf/crm/releases/felixeweb-crm-1.8.5.zip",
+ "sha256": "0f0252ce386b0cf9b980bfcf04dbf490b3cd855daac25bd8ac796bc2bbc34a31",
+ "notes": "Homepage business schema now only on the homepage, faster loading screen, unused Hostinger subscription files no longer loaded on site pages."
 }
