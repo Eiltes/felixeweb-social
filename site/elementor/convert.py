@@ -150,6 +150,14 @@ def stats(nodes):
     walk(nodes)
     return c
 
+def build_part(html, tag, computed, root_class):
+    soup = BeautifulSoup(html, 'html.parser')
+    data_to_classes(soup)
+    el = soup.find(tag)
+    node = container(el, 0, computed)
+    node['settings']['css_classes'] = (node['settings'].get('css_classes', '') + ' ' + root_class).strip()
+    return [node]
+
 if __name__ == '__main__':
     src, comp, out = sys.argv[1], sys.argv[2], sys.argv[3]
     computed = json.load(open(comp)) if comp != '-' else {}
