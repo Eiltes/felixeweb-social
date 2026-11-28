@@ -6,6 +6,10 @@ body.fwn .fwb{display:block}
 body.fwn .e-con{min-width:auto}
 body.fwn .e-con.e-flex>.elementor-widget,body.fwn .e-con>.elementor-widget{max-width:none;margin:0}
 body.fwn .elementor-widget{--kit-widget-spacing:0px}
+html:has(body.fwn){font-size:100%;overflow-x:clip}
+body.fwn{overflow-x:clip}
+body.fwn :where(h1,h2,h3,h4,h5,h6){color:inherit;font-family:inherit;font-weight:700;line-height:inherit}
+body.fwn .elementor-widget-text-editor,body.fwn .elementor-widget-html{color:inherit;font-family:inherit;font-weight:inherit}
 body.fwn:not(.elementor-editor-active) .elementor-widget-text-editor,
 body.fwn:not(.elementor-editor-active) .elementor-widget-html,
 body.fwn:not(.elementor-editor-active) .elementor-widget-shortcode,

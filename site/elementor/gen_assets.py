@@ -44,6 +44,10 @@ body.fwn .fwb{display:block}
 body.fwn .e-con{min-width:auto}
 body.fwn .e-con.e-flex>.elementor-widget,body.fwn .e-con>.elementor-widget{max-width:none;margin:0}
 body.fwn .elementor-widget{--kit-widget-spacing:0px}
+html:has(body.fwn){font-size:100%;overflow-x:clip}
+body.fwn{overflow-x:clip}
+body.fwn :where(h1,h2,h3,h4,h5,h6){color:inherit;font-family:inherit;font-weight:700;line-height:inherit}
+body.fwn .elementor-widget-text-editor,body.fwn .elementor-widget-html{color:inherit;font-family:inherit;font-weight:inherit}
 body.fwn:not(.elementor-editor-active) .elementor-widget-text-editor,
 body.fwn:not(.elementor-editor-active) .elementor-widget-html,
 body.fwn:not(.elementor-editor-active) .elementor-widget-shortcode,
@@ -64,6 +68,7 @@ shim = r'''(function(){
  // highlight the menu link for this page
  var p=location.pathname.replace(/\/+$/,'/')||'/';
  document.querySelectorAll('header a[href], #mobile-menu a[href]').forEach(function(a){a.classList.remove('on');var h=a.getAttribute('href');if(h===p)a.classList.add('on')});
+ if(/^\/(web-design|app-development|video|book-formatting|ai-automation)\/$/.test(p)){document.querySelectorAll('header a[href="/services/"], #mobile-menu a[href="/services/"]').forEach(function(a){a.classList.add('on')})}
 })();
 '''
 open('native.js', 'w').write(shim + '\n'.join(js))

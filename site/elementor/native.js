@@ -4,6 +4,7 @@
  // highlight the menu link for this page
  var p=location.pathname.replace(/\/+$/,'/')||'/';
  document.querySelectorAll('header a[href], #mobile-menu a[href]').forEach(function(a){a.classList.remove('on');var h=a.getAttribute('href');if(h===p)a.classList.add('on')});
+ if(/^\/(web-design|app-development|video|book-formatting|ai-automation)\/$/.test(p)){document.querySelectorAll('header a[href="/services/"], #mobile-menu a[href="/services/"]').forEach(function(a){a.classList.add('on')})}
 })();
 
 (function(){
