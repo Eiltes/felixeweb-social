@@ -1,6 +1,6 @@
 {
-  "version": "1.8.0",
-  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/51166dd978bae125f3d49746c1c1d55788389de9/crm/releases/felixeweb-crm-1.8.0.zip",
-  "sha256": "dd8300458c1eccc30f329f89a20b4e52deccad50f49078b2d17c00882b6f3ef5",
-  "notes": "Support for pages rebuilt with real Elementor widgets (shared header, footer and design)."
+  "version": "1.8.1",
+  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/43b788a0d1effdb757f4da00c08b756a8b46faf1/crm/releases/felixeweb-crm-1.8.1.zip",
+  "sha256": "413dbc91cc8a6d4965d8caf2ce56328e3e70654d1a1a267ecf5646fde9d39fe8",
+  "notes": "Website pages now built with real Elementor widgets; shared header, footer and design files."
 }
