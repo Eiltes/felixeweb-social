@@ -1,6 +1,6 @@
 {
-  "version": "1.7.7",
-  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/b00f0f30baf57cff9bee2e024dc8db9067777762/crm/releases/felixeweb-crm-1.7.7.zip",
-  "sha256": "cf02c9c34f7daa1c04f996db9b909c97e9418959bafa09709395dbccaf1d00e5",
-  "notes": "Website: card titles no longer turn blue on hover; theme accent colour is gold."
+  "version": "1.8.0",
+  "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/51166dd978bae125f3d49746c1c1d55788389de9/crm/releases/felixeweb-crm-1.8.0.zip",
+  "sha256": "dd8300458c1eccc30f329f89a20b4e52deccad50f49078b2d17c00882b6f3ef5",
+  "notes": "Support for pages rebuilt with real Elementor widgets (shared header, footer and design)."
 }
