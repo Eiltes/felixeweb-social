@@ -16,6 +16,8 @@ def boost_sel(sel):
         if q.startswith(('html',':root','*','::')) or q.startswith('body'):
             q = q.replace('body', 'body.fwn', 1) if q.startswith('body') and not q.startswith('body.fwn') else q
             out.append(q)
+        elif q.startswith(('.ready', '.menu-open')):
+            out.append('body.fwn' + q)  # state classes the script puts on <body>
         else:
             out.append('body.fwn ' + q)
     return ','.join(out)
