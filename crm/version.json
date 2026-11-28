@@ -1,6 +1,6 @@
 {
- "version": "1.8.2",
- "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/704ac37e7e077a6c819a45200341732e23d9af75/crm/releases/felixeweb-crm-1.8.2.zip",
- "sha256": "c099236a844d277154ffd427a5d801da1144fa024190880a531e2658a8469502",
- "notes": "Fixes headings showing dark blue-grey, switches Elementor's default fonts off so everything is Montserrat, keeps text size the same on phones, stops a small side-scroll on mobile, and highlights Services in the menu on service pages."
+ "version": "1.8.3",
+ "zip": "https://raw.githubusercontent.com/Eiltes/felixeweb-social/f48a316b6213e4d948d16978e1c7312c66730126/crm/releases/felixeweb-crm-1.8.3.zip",
+ "sha256": "07fa6be1529b4767a3562450f62621bf812ccaff993a624e13107977cfba62bb",
+ "notes": "New 3D spinning FW coin on the page preloader."
 }
