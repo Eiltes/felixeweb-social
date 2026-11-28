@@ -281,7 +281,7 @@ def header(active):
     def L(slug, label):
         return f'<a href="/{slug}/"{" class=\"on\"" if active==slug else ""}>{label}</a>'
     subs = ''.join(f'<a href="/{s}/"{" class=\"on\"" if active==s else ""}>{t}</a>' for s,t,d,i in SERVICES)
-    return f'''<div id="loader" aria-hidden="true"><div class="fw">F<span>W</span></div></div>
+    return f'''<div id="loader" aria-hidden="true"><div class="coin"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><b class="cf">F<span>W</span></b><b class="cf cb">F<span>W</span></b></div></div>
 <div id="cur" aria-hidden="true"></div>
 <svg class="grain" aria-hidden="true" width="100%" height="100%"><filter id="gr"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(#gr)"/></svg>
 
