@@ -11,7 +11,7 @@
  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
  function $(s){return document.querySelector(s)}function $$(s){return document.querySelectorAll(s)}
  function ready(){var l=$('#loader');if(l)l.classList.add('done');document.body.classList.add('ready')}
- window.addEventListener('load',function(){setTimeout(ready,reduce?0:450)});setTimeout(ready,2200);
+ function go(){setTimeout(ready,reduce?0:350)}if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);setTimeout(ready,1200);
  var hd=$('#top');function onScroll(){if(hd)hd.classList.toggle('scrolled',window.scrollY>30)}
  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
  var bg=$('#burger');if(bg){bg.addEventListener('click',function(){var o=document.body.classList.toggle('menu-open');bg.setAttribute('aria-expanded',o)});
