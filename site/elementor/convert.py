@@ -16,10 +16,14 @@ BLOCK_TAGS = {'div', 'section', 'header', 'footer', 'article', 'aside', 'nav', '
 COMPONENT_CLASSES = {'car', 'marquee', 'tm-split', 'tm-grid', 'faq', 'qlist', 'grain', 'bg-grid', 'orb'}
 COMPONENT_IDS = {'tmSplit', 'tmGrid'}
 
+import hashlib
 used = set()
+_ctx = {'seed': 'page', 'n': 0}
 def nid():
+    # stable ids: same page + same position -> same id, so re-imports update blocks instead of duplicating them
     while True:
-        i = secrets.token_hex(4)[:7]
+        _ctx['n'] += 1
+        i = hashlib.sha1(f"{_ctx['seed']}:{_ctx['n']}".encode()).hexdigest()[:7]
         if i not in used:
             used.add(i); return i
 
@@ -86,6 +90,8 @@ def container(t, depth, computed):
         if c.get('fw') == 'wrap': s['flex_wrap'] = 'wrap'
     else:
         s['flex_direction'] = 'column'
+        if c.get('display') == 'block':
+            s['css_classes'] = (s.get('css_classes', '') + ' fwb').strip()
     node = {'id': nid(), 'elType': 'container', 'isInner': depth > 0, 'settings': s, 'elements': []}
     for k in t.children:
         if isinstance(k, NavigableString):
@@ -161,6 +167,7 @@ def build_part(html, tag, computed, root_class):
 if __name__ == '__main__':
     src, comp, out = sys.argv[1], sys.argv[2], sys.argv[3]
     computed = json.load(open(comp)) if comp != '-' else {}
+    _ctx['seed'] = src.rsplit('/', 1)[-1]
     data = build(open(src).read(), computed)
     json.dump(data, open(out, 'w'))
     print(stats(data), 'page_css:', len(page_css))

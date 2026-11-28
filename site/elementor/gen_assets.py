@@ -7,10 +7,38 @@ css = ''.join(x.string or '' for x in s.find_all('style', recursive=False))
 # the old single-widget pages force every Elementor container to padding 0 !important; native pages need containers to take their own padding
 css = css.replace('.elementor-section.elementor-section-boxed>.elementor-container,.e-con,.e-con-inner,.elementor-column-gap-default>.elementor-column>.elementor-element-populated{max-width:100%!important;padding:0!important;margin:0!important}', '')
 assert '.e-con,.e-con-inner' not in css
+import tinycss2
+def boost_sel(sel):
+    out=[]
+    for part in sel.split(','):
+        q=part.strip()
+        if not q: continue
+        if q.startswith(('html',':root','*','::')) or q.startswith('body'):
+            q = q.replace('body', 'body.fwn', 1) if q.startswith('body') and not q.startswith('body.fwn') else q
+            out.append(q)
+        else:
+            out.append('body.fwn ' + q)
+    return ','.join(out)
+def boost(rules):
+    res=''
+    for r in rules:
+        if r.type=='qualified-rule':
+            sel=tinycss2.serialize(r.prelude).strip()
+            res+=boost_sel(sel)+'{'+tinycss2.serialize(r.content)+'}'
+        elif r.type=='at-rule':
+            kw=r.at_keyword.lower()
+            pre=tinycss2.serialize(r.prelude)
+            if kw in ('media','supports') and r.content is not None:
+                res+='@'+r.at_keyword+pre+'{'+boost(tinycss2.parse_rule_list(r.content, skip_whitespace=True, skip_comments=True))+'}'
+            else:
+                res+='@'+r.at_keyword+pre+('{'+tinycss2.serialize(r.content)+'}' if r.content is not None else ';')
+    return res
+css = boost(tinycss2.parse_stylesheet(css, skip_whitespace=True, skip_comments=True))
 compat = '''
 /* ---- FelixeWeb native Elementor compatibility ---- */
 body.fwn{margin:0}
 body.fwn .e-con{--padding-top:0px;--padding-right:0px;--padding-bottom:0px;--padding-left:0px;--margin-top:0px;--margin-right:0px;--margin-bottom:0px;--margin-left:0px;--gap:0px;--row-gap:0px;--column-gap:0px;--width:auto;--min-height:0px;--container-max-width:none;--content-width:100%;--border-radius:0;--flex-wrap:nowrap;max-width:none}
+body.fwn .fwb{display:block}
 body.fwn .e-con.e-flex>.elementor-widget,body.fwn .e-con>.elementor-widget{max-width:none;margin:0}
 body.fwn .elementor-widget{--kit-widget-spacing:0px}
 body.fwn:not(.elementor-editor-active) .elementor-widget-text-editor,
